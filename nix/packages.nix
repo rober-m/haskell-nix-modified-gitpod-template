@@ -14,15 +14,23 @@ let
           directory = ./packages;
         };
         manual = _hfinal: hprev: {
-          replaceme =
-            let
-              filteredSrc = util.filterSrc ../. {
-                ignoreFiles = conf.ignore.files;
-                ignorePaths = conf.ignore.paths;
-              };
-            in
-            hprev.callCabal2nix "replaceme" filteredSrc { };
+          replaceme = pkgs.haskell.lib.overrideCabal hprev.replaceme (_drv: {
+            src = util.filterSrc ../. {
+              ignoreFiles = conf.ignore.files;
+              ignorePaths = conf.ignore.paths;
+            };
+          });
         };
+        # manual = _hfinal: hprev: {
+        #   replaceme =
+        #     let
+        #       filteredSrc = util.filterSrc ../. {
+        #         ignoreFiles = conf.ignore.files;
+        #         ignorePaths = conf.ignore.paths;
+        #       };
+        #     in
+        #     hprev.callCabal2nix "replaceme" filteredSrc { };
+        # };
       in
       pkgs.lib.composeExtensions depsFromDir manual;
   };

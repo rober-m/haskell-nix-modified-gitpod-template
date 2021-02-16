@@ -3,13 +3,15 @@
 greet = "Nixkell"
 
 [env]
-ghc = "8.10.3"
+ghc = "8.10.4"
 packages = [
   "cabal-install",
+  "cabal2nix",
   "haskell-language-server",
   "haskellPackages.implicit-hie",
   "hlint",
   "niv",
+  "nix-build-uncached",
   "ormolu",
 ]
 
