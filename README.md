@@ -6,6 +6,9 @@ Get your Haskell projects up and running with no fuss using Nix.
 
 ## TL;DR
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gitpod-io/template-haskell-nix)
+
+
 Have [nix](https://nixos.org/) and [direnv](https://direnv.net/) installed:
 
 ```
