@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")/"
 
 # Make sure the git repo is in fact Nixkell's before nuking stuff
 repo_url=$(git config --get remote.origin.url)
-if [[ $(basename -s .git "$repo_url") != "nixkell" ]]; then
+if [[ $(basename -s .git "$repo_url") != "template-haskell-nix" ]]; then
   echo "Not a nixkell repository, aborting..."
   exit 1
 fi
